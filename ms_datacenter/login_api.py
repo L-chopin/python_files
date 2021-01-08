@@ -1,0 +1,26 @@
+# 请求数据中台测试地址登录接口，并返回token
+import requests
+
+class login:
+
+    @classmethod
+    def get_token(cls,username,password):
+        json = {
+            "password": password,
+            "type": "pc",
+            "username": username
+        }
+
+        headers = {
+            "Content-Type":"application/json;charset=UTF-8"
+        }
+
+        response = requests.post(
+            "http://47.113.97.130:8081/sys/login",
+            headers = headers,
+            json = json
+        )
+
+        # 调用.json()方法，将响应信息转变为python字典，不然没法用字典的方式获取响应信息中的token
+        # 获取token,并返回
+        return response.json()["data"]["accessToken"]
