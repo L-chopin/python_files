@@ -4,7 +4,7 @@ import pandas as pd
 data_list = []
 
 # 设置初始日期
-date_time = datetime.date(2020, 1, 1)
+date_time = datetime.date(2020, 11, 1)
 
 # 设置日期增量
 date_delta = datetime.timedelta(days=1)
@@ -12,7 +12,7 @@ date_delta = datetime.timedelta(days=1)
 
 i = 1
 
-while i <= 3:
+while i <= 4:
 
     base_list = []
 
@@ -21,11 +21,14 @@ while i <= 3:
         date_time = date_time + date_delta
 
     # 店铺ID
-    shop_id = "1CK00001"
+    shop_id_list = ["1CK00001", "1SF00001", "1LAB00001", "1CK00005", "1CK00025", "1LAB00003", "1SF00002"]
+    shop_id = random.choice(shop_id_list)
+    # shop_id = "1CK00001"
 
     # 广告类型
     ad_type_list = ["小兵的广告类型","大头兵的广告类型","超级兵的广告类型"]
-    ad_type = "超级兵的广告类型"#random.choice(ad_type_list)
+    ad_type = random.choice(ad_type_list)
+    ad_type = "超级兵的广告类型"
 
     # 成交金额
     gvm = random.uniform(1,1000)

@@ -10,11 +10,11 @@ class classmethod_DBUtils:
     @classmethod
     def get_connect(cls):
         return pymysql.connect(
-            host="47.113.97.130",
+            host="14.23.109.84",
             port=3306,
             database="ms_datacenter",
             user="root",
-            password="123456",
+            password="Ms77897854",
             charset="utf8"
         )
 

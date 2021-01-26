@@ -1,11 +1,10 @@
 import random
 import pandas as pd
-from utils.random_num_and_letters_code import random_code
 from utils.random_name import random_name
 from utils.random_number_of_data import random_number_of_data
 from utils.random_provinces_and_cities import random_province_and_city
 from utils.list_str_concat import list_to_str
-from ms_datacenter.new_media_marking_data.advertising_data.product_data import get_product
+from ms_datacenter.basic_data.product_data import get_product
 from ms_datacenter.new_media_marking_data.advertising_data.requests_get_material import get_material_name
 
 
@@ -46,10 +45,12 @@ while z <= 1:
     name_and_gender = random_name.get_name_and_gender()
 
     # 计划名称
-    plan_name = '%s的广告投放计划' % name_and_gender[0]
+    # plan_name = '%s的广告投放计划' % name_and_gender[0]
+    plan_name = "小兵1的计划"
 
     # 计划ID
-    plan_ID = random_code.get_code(6)
+    # plan_ID = random_code.get_code(6)
+    plan_ID = "xiaobing1"
 
     # 淘宝联盟推广账号
     taobao_union_promoted_account = "colorkey旗舰店"
@@ -58,7 +59,7 @@ while z <= 1:
     promotion_position = "小兵的推广位"
 
     # 商品ID
-    product_id = list_to_str.get_str(get_product.product_id())
+    product_id = list_to_str.get_str(get_product.product_id(shopName="colorkey天猫"))
 
     # 素材名称
     material_name = get_material_name.material_name()
@@ -135,4 +136,4 @@ while z <= 1:
     z += 1
 
 df=pd.DataFrame(data_list,columns=['广告账户','计划名称','计划ID','淘宝联盟推广账号','所属推广位','商品ID','素材名称','省份','城市','性别','年龄','行为关键词','兴趣关键词','过滤时间','手机价格','行为场景','行为天数','人群包名称','人群包ID'])   # 将字段和值一一匹配
-df.to_excel('D://python导出表格/新媒体营销数据/广告投放数据/广告投放计划管理==测试用.xlsx',index=False)  # 将字段和对应值转化成Excel表格
+df.to_excel('D://python导出表格/新媒体营销数据/广告投放数据/广告投放计划管理==测试用新.xlsx',index=False)  # 将字段和对应值转化成Excel表格

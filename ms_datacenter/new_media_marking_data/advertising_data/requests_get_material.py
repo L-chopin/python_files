@@ -16,7 +16,7 @@ class get_material_name:
         }
 
         # 访问素材查询接口，并接收响应
-        response = requests.get("http://47.113.97.130:8081/adPlan/findAllMedia",headers = headers)
+        response = requests.get("http://14.23.109.84:9092/adPlan/findAllMedia",headers = headers)
 
         material_name_list = []
         i = 0

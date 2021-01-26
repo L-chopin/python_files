@@ -5,24 +5,23 @@ from utils.random_num_and_letters_code import random_code
 data_list = []
 
 # 设置初始日期
-date_time = datetime.date(2020, 12, 28)
+date_time = datetime.date(2021, 1, 1)
 
 # 设置日期增量
 date_delta = datetime.timedelta(days=1)
 
 z = 1
 # 数据量
-while z <= 6:
+while z <= 1:
 
     base_list = []
-
 
     KOL_list = ['薇娅','李佳琦','辛有志','罗永浩','张沫凡','林允','雪梨','林依轮','张大奕','徐冬冬']
 
     order_distribution_resources_list = ["精华","面霜","乳液","洗面奶","面膜","隔离霜","气垫bb","粉底液","唇釉","美妆蛋","眼线笔","定妆喷雾","小金块","小银管"]
 
     # 计划ID
-    plan_ID = '666'
+    plan_ID = 'xiaobing1'
 
     # 日期
     if z != 1:
@@ -165,7 +164,7 @@ while z <= 6:
          flow_share_pace,activity_share_number,private_letter_number,homepage_visit_number)
     )
     z += 1
-
+3
 
 
 # 将字段和值一一匹配
@@ -175,4 +174,4 @@ df=pd.DataFrame(data_list,columns=['日期','计划ID','视频链接','投放达
                                    '活动分享数','私信数','主页访问量'])
 
 # 将字段和对应值转化成Excel表格
-df.to_excel('D://python导出表格/新媒体营销数据/广告投放数据/广告投放计划日报表==测试用.xlsx',index=False)
+df.to_excel('D://python导出表格/新媒体营销数据/广告投放数据/广告投放计划日报表==测试用新.xlsx',index=False)
