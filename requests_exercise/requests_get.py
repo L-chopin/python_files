@@ -9,10 +9,10 @@
 # 导包
 import requests
 
-from ms_datacenter.login_api import login
+from ms_datacenter.common.login_api import login
 
 # 输入用户名和密码，调用Login的get_token方法获取token
-token = login.get_token(username="admin",password="123456")
+token = login.get_token()
 
 # 构造请求头
 headers = {
@@ -20,7 +20,7 @@ headers = {
 }
 
 # 访问银行账户查询接口，并接收响应
-response = requests.get("http://47.113.97.130:8081/financeba/selectScreen",headers = headers)
+response = requests.get("http://14.23.109.84:9092/financeba/selectScreen",headers = headers)
 
 # 打印结果
 print("状态码：",response.status_code)

@@ -1,11 +1,11 @@
-# 定向计划明细随机生成
+# 淘宝客定向计划数据
 
 import random,datetime
 import pandas as pd
 
 
 # 设置初始日期
-date_time = datetime.date(2020, 12, 28)
+date_time = datetime.date(2021, 1, 31)
 
 # 设置日期增量
 date_delta = datetime.timedelta(days=1)

@@ -12,22 +12,22 @@ import pymysql
 
 # 2.创建连接
 connect = pymysql.Connect(
-    host="47.113.97.130",
+    host="14.23.109.84",
     port=3306,
     database="ms_datacenter",
     user="root",
-    password="123456",
+    password="Ms77897854",
     charset="utf8"
 )
 
 # 3.创建游标
 cursor = connect.cursor()
-print(connect)
-print(cursor)
+
 
 # 4.核心操作：发送sql语句
 # 4.1编写sql语句
-sql = "SELECT id FROM finance_bank_account WHERE account_name = '林晓彬'"
+# sql = "SELECT id FROM finance_bank_account WHERE account_name = '林晓彬'"
+sql = "SELECT id FROM `taotuan_product_plan_details`"
 # 4.2执行sql
 cursor.execute(sql)
 # 4.3获取响应结果
@@ -53,8 +53,11 @@ print("响应结果行数：",cursor.rowcount)
 # print(row8)
 
 # 4.3.3获取所有数据
-rows = cursor.fetchone()[0]
-print(rows)
+# rows = cursor.fetchone()[0]
+rows = cursor.fetchall()
+for i in rows:
+    print(i[0])
+    print(type(i[0]))
 # for row in rows:
 #     print("每一条数据：",row)
 #     print("id",row[0])

@@ -1,7 +1,10 @@
-import random,pymysql
+# 获取随机省份和相应省份的城市
+
+import random
+import pymysql
 
 
-class random_province_and_city:
+class ProvinceAndCity:
 
     @classmethod
     def get_province_and_city(cls):
@@ -25,15 +28,16 @@ class random_province_and_city:
         cursor.execute(sql)
 
         # 获取所有【id，省份】数据
-        rows = cursor.fetchall()
+        rows1 = cursor.fetchall()
         # 定义一个空的“省份”列表，遍历所有数据，转换成列表类型，并将数据加入“省份”列表中
         provinces = []
-        for i in rows:
+        for i in rows1:
             a = list(i)
             b = a[0]
             provinces.append(a)
 
-        m = random.randint(1,5)                         # 随机取省的个数，1-5个
+        # 随机取省的个数，1-5个
+        m = random.randint(1, 5)
         for i in range(m):
             # 随机取【id，省份】
             random_province = random.choice(provinces)
@@ -48,18 +52,19 @@ class random_province_and_city:
                 # 非“香港”或者“澳门”的省份，根据pid查询获取的省份对应的所有城市
                 sql = "SELECT `name` FROM `province_city_district` WHERE pid = %d" % random_province[0]
                 cursor.execute(sql)
-                Rows = cursor.fetchall()
+                rows2 = cursor.fetchall()
 
                 # 定义一个空的“城市”列表，遍历所有数据，转换为列表类型，并将转换类型后的数据加入到“城市”列表中
                 cities = []
-                for i in Rows:
-                    a = list(i)
+                for j in rows2:
+                    a = list(j)
                     cities.append(a[0])
 
                 # 定义一个空的“城市”列表
                 city = []
-                n = random.randint(1, 5)    # 随机取城市的个数，1-5个
-                for i in range(n):
+                # 随机取城市的个数，1-5个
+                n = random.randint(1, 5)
+                for k in range(n):
                     # 随机取“城市”，将获取到的城市加入到city列表中，并从cities删除该城市，避免取重复城市
                     random_city = random.choice(cities)
                     city.append(random_city)

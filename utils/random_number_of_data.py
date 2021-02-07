@@ -23,3 +23,4 @@ class random_number_of_data:
                 del incoming_box[x]
 
             return incoming_box
+

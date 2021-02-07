@@ -1,5 +1,5 @@
 import requests
-from ms_datacenter.login_api import login
+from ms_datacenter.common.login_api import login
 
 # 输入用户名和密码，调用Login的get_token方法获取token
 token = login.get_token(username="admin",password="123456")

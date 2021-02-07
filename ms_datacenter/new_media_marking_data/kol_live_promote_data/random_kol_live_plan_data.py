@@ -1,7 +1,7 @@
 # 达人直播计划
 
-import random,datetime
-
+import random
+import datetime
 import pandas as pd
 
 # 设置初始日期
@@ -11,7 +11,7 @@ date_time = datetime.date(2020, 11, 1)
 date_delta = datetime.timedelta(days=1)
 
 i = 1
-list = []
+data_list = []
 while i <= 3:                                   # 数据量
     base_list = []
 
@@ -110,7 +110,7 @@ while i <= 3:                                   # 数据量
     base_list.append(e)
     base_list.append(f)
     base_list.append(g)
-    list.append(base_list)
+    data_list.append(base_list)
 
     i += 1
 

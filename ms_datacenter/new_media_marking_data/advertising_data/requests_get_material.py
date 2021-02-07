@@ -1,22 +1,17 @@
+# 获取素材名称（通过接口）
 
-import requests,random
+import random
+from ms_datacenter.common.login_api import Login
 
-from ms_datacenter.login_api import login
 
-class get_material_name:
+class GetMaterial:
 
     @classmethod
     def material_name(cls):
         # 输入用户名和密码，调用Login的get_token方法获取token
-        token = login.get_token(username="admin",password="123456")
+        session = Login.get_session()
 
-        # 构造请求头
-        headers = {
-            "token":token
-        }
-
-        # 访问素材查询接口，并接收响应
-        response = requests.get("http://14.23.109.84:9092/adPlan/findAllMedia",headers = headers)
+        response = session.get("http://192.168.10.16:9092/adPlan/findAllMedia")
 
         material_name_list = []
         i = 0
@@ -28,3 +23,11 @@ class get_material_name:
 
         return material_name
 
+    @classmethod
+    def get_material_list(cls):
+        # 输入用户名和密码，调用Login的get_token方法获取token
+        session = Login.get_session()
+
+        response = session.get("http://192.168.10.16:9092/adPlan/findAllMedia")
+        material_list = response.json()["data"]
+        return material_list

@@ -1,6 +1,9 @@
-import random,pymysql
+# 获取素材名称（通过连接数据库）
+import random
+import pymysql
 
-class get_material:
+
+class GetMaterial:
 
     @classmethod
     def material_name(cls):
@@ -32,4 +35,3 @@ class get_material:
 
         material_name = random.choice(material_name_list)
         return material_name
-
